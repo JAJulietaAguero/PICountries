@@ -9,7 +9,7 @@ server.listen(PORT, async () => {
   console.log(`Server listening on port ${PORT}`);
   const { data } = await axios.get('http://localhost:5000/countries');
 
-  data.map(async({cca3, name, flags, continents, capital, subregion, area, population}) => {
+  data.map(async ({cca3, name, flags, continents, capital, subregion, area, population}) => {
     await Country.findOrCreate({
       where: {
         cca3: cca3
